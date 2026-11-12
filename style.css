@@ -1,0 +1,408 @@
+/* VARIABEL WARNA & ESTETIKA ARTISTIK */
+:root {
+    --bg-color: #f7f5f0;          /* Warm beige/canvas background */
+    --surface-color: #ffffff;     /* Pure white card */
+    --text-primary: #1c1917;      /* Warm dark charcoal */
+    --text-secondary: #78716c;    /* Muted stone gray */
+    --accent-gold: #d97706;       /* Warm artistic accent */
+    --canva-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #a855f7 100%); /* Elegant creative gradient */
+    --canva-hover-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
+    --border-color: #e7e5e4;
+    --shadow-soft: 0 20px 40px -15px rgba(28, 25, 23, 0.05);
+    --shadow-hover: 0 30px 60px -20px rgba(28, 25, 23, 0.12);
+    --radius-smooth: 20px;
+}
+
+/* RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* NAVBAR ARTISTIK (Floating Glass) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(247, 245, 240, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(231, 229, 228, 0.6);
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+}
+
+.logo span {
+    background: var(--canva-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: var(--text-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* HERO SECTION (Editorial Style) */
+.hero {
+    text-align: center;
+    padding: 96px 0 64px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+.hero p {
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* CATALOG SECTION */
+.catalog-section {
+    padding: 40px 0 100px;
+    scroll-margin-top: 90px;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 36px;
+}
+
+/* POSTER CARD (Art Gallery Vibe) */
+.poster-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-smooth);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.poster-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(120, 113, 108, 0.3);
+}
+
+.poster-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Proporsi poster galeri yang lebih artistik */
+    overflow: hidden;
+    background-color: #eae7df;
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.poster-card:hover .poster-img {
+    transform: scale(1.05);
+}
+
+.preview-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(28, 25, 23, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.poster-card:hover .preview-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.preview-btn:hover {
+    background: rgba(28, 25, 23, 0.9);
+    transform: scale(1.08) translateY(0);
+}
+
+.poster-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.poster-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+/* TOMBOL ESTETIK */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-canva {
+    background: var(--canva-gradient);
+    color: #ffffff;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-canva:hover {
+    background: var(--canva-hover-gradient);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+    transform: translateY(-2px);
+}
+
+/* CTA & KONTAK SECTION */
+.cta-footer-section {
+    padding: 60px 0 100px;
+    scroll-margin-top: 90px;
+}
+
+.cta-box {
+    background: linear-gradient(145deg, #ffffff, #fcfbf9);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    padding: 64px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.cta-box h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+    margin-bottom: 16px;
+    letter-spacing: -0.03em;
+}
+
+.cta-box p {
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-contact {
+    background-color: var(--text-primary);
+    color: #ffffff;
+    min-width: 200px;
+}
+
+.btn-contact:hover {
+    background-color: #44403c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(28, 25, 23, 0.2);
+}
+
+.btn-canva-outline {
+    background: var(--canva-gradient);
+    color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-canva-outline:hover {
+    background: var(--canva-hover-gradient);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background-color: rgba(247, 245, 240, 0.5);
+}
+
+/* MODAL PREVIEW ARTISTIK */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 25, 23, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 78vh;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#modalCaption {
+    margin: 20px auto;
+    text-align: center;
+    color: #f7f5f0;
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+.close-modal {
+    position: absolute;
+    top: 24px;
+    right: 36px;
+    color: #f7f5f0;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+    opacity: 0.7;
+}
+
+/* RESPONSIF MEDIA QUERIES */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    .hero {
+        padding: 60px 0 40px;
+    }
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+    .cta-box {
+        padding: 40px 20px;
+    }
+}
